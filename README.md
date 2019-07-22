@@ -4,7 +4,7 @@ Meta-CloudSimSFC is an extension of CloudSimSDN project. Version 2.0 is now avai
 
 ## Features:
 
-* Simulation framework for Virtual Network Function(VNF) placement in cloud computing by usint three Metaheuristic   algorithm:
+* Simulation framework for Virtual Network Function(VNF) placement in cloud computing by usint three Metaheuristic   algorithms:
 
 1. SHC-VNFP algorithm
 
