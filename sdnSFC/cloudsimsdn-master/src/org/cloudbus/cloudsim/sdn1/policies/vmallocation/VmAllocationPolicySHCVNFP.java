@@ -125,7 +125,7 @@ public class VmAllocationPolicySHCVNFP extends VmAllocationPolicy implements Pow
 					}else{
 							//for(int j =i+1; j<numHosts; j++){
 							
-							if (freeResources[i+1] <=lessFree) {
+							if (freeResources[i+1] > lessFree) {
 								lessFree = freeResources[i+1];
 								idx=i+1;
 									
