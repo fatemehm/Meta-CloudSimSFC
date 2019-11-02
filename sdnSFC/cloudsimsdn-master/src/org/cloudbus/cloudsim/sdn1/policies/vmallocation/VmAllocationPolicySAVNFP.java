@@ -140,29 +140,22 @@ public class VmAllocationPolicySAVNFP extends VmAllocationPolicy implements Powe
 			//https://www.geeksforgeeks.org/simulated-annealing/
 			int numberOfIterator = 10;
 			while (temp>= t_criteria && numberOfIterator<i_criteria){
-				for( int i=1; i<numHosts; i++){
+				for( int i=0; i<numHosts; i++){
 								
 					//Collections.shuffle(hostss);			
 					double candidateFitness=freeResources[i];
 								
 					if (candidateFitness>currentFitness) {
-						currentFitness = candidateFitness;
-						if ( candidateFitness > bestFitness) {
-										
-							bestFitness = candidateFitness;
-										
+						double feasibleNeighbor = candidateFitness;
+						double p = Math.exp(-Math.abs(feasibleNeighbor-currentFitness) / temp);
+						if (Math.random() < p) {	
+					    		currentFitness = feasibleNeighbor;
 							idIndex=i;
 						}
-					}else { 
-						//// If the new solution is worse, calculate an acceptance probability
-						if (Math.random() < Math.exp(-Math.abs(candidateFitness-currentFitness) / temp)){
-										
-				    			currentFitness = candidateFitness;
-										
-						}
-							temp *= alpha;
-							numberOfIterator++;
+						
 					}
+					temp *= alpha;
+					numberOfIterator++;
 				}
 			
 			}
